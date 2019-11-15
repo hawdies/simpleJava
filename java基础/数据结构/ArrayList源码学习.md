@@ -1,18 +1,20 @@
-#ArrayList简介  
-ArrayList的底层时数组数列,相当于动态数组.于java中的数组相比,他的容量能动态增长.在添加大量元素前,应用程序可以使用`ensureCapacity`操作来增加ArrayList实现的容量.这可以减少递增是分配的数量.   
-   
+# ArrayList简介 #
+
+ArrayList的底层时数组数列,相当于动态数组.于java中的数组相比,他的容量能动态增长.在添加大量元素前,应用程序可以使用`ensureCapacity`操作来增加ArrayList实现的容量.这可以减少递增是分配的数量.  
+
 它继承于AbstractList,实现了List,RandomAccess,Cloneable,java.io.Serializable这些接口.
-ArrayList继承了AbstractList,实现了List.他是一个数组队列,提供了相关的添加,删除,修改,遍历等功能.   
+ArrayList继承了AbstractList,实现了List.他是一个数组队列,提供了相关的添加,删除,修改,遍历等功能.  
 
-ArrayList实现了RandomAccess接口,RandomAccess是一个标志接口,表明实现了这个接口的List集合时支持**快速随机访问**的.   
+ArrayList实现了RandomAccess接口,RandomAccess是一个标志接口,表明实现了这个接口的List集合时支持**快速随机访问**的.  
 
-ArrayList实现了Cloneable接口,即覆盖了函数clone(),能被克隆.   
+ArrayList实现了Cloneable接口,即覆盖了函数clone(),能被克隆.  
 
-ArrayList实现了java.io.Serializable接口,这意味着ArrayList支持序列化,能通过序列化去传输.   
+ArrayList实现了java.io.Serializable接口,这意味着ArrayList支持序列化,能通过序列化去传输.  
 
-和Vector不同,ArrayList中的操作不是线程安全的!   
+和Vector不同,ArrayList中的操作不是线程安全的!  
 
-#ArrayList核心源码   
+## ArrayList核心源码 ##
+
 ```java
 package java.util;
 
@@ -92,7 +94,7 @@ public class ArrayList<E> extends AbstractList<E>
     }
 
     /**
-     * 修改这个ArrayList实例的容量是列表的当前大小。 应用程序可以使用此操作来最小化ArrayList实例的存储。 
+     * 修改这个ArrayList实例的容量是列表的当前大小。 应用程序可以使用此操作来最小化ArrayList实例的存储。
      */
     public void trimToSize() {
         modCount++;
@@ -175,7 +177,7 @@ public class ArrayList<E> extends AbstractList<E>
     }
 
     /**
-     *返回此列表中的元素数。 
+     *返回此列表中的元素数。
      */
     public int size() {
         return size;
@@ -193,12 +195,12 @@ public class ArrayList<E> extends AbstractList<E>
      * 如果此列表包含指定的元素，则返回true 。
      */
     public boolean contains(Object o) {
-        //indexOf()方法：返回此列表中指定元素的首次出现的索引，如果此列表不包含此元素，则为-1 
+        //indexOf()方法：返回此列表中指定元素的首次出现的索引，如果此列表不包含此元素，则为-1
         return indexOf(o) >= 0;
     }
 
     /**
-     *返回此列表中指定元素的首次出现的索引，如果此列表不包含此元素，则为-1 
+     *返回此列表中指定元素的首次出现的索引，如果此列表不包含此元素，则为-1
      */
     public int indexOf(Object o) {
         if (o == null) {
@@ -231,7 +233,7 @@ public class ArrayList<E> extends AbstractList<E>
     }
 
     /**
-     * 返回此ArrayList实例的浅拷贝。 （元素本身不被复制。） 
+     * 返回此ArrayList实例的浅拷贝。 （元素本身不被复制。）
      */
     public Object clone() {
         try {
@@ -247,7 +249,7 @@ public class ArrayList<E> extends AbstractList<E>
     }
 
     /**
-     *以正确的顺序（从第一个到最后一个元素）返回一个包含此列表中所有元素的数组。 
+     *以正确的顺序（从第一个到最后一个元素）返回一个包含此列表中所有元素的数组。
      *返回的数组将是“安全的”，因为该列表不保留对它的引用。 （换句话说，这个方法必须分配一个新的数组）。
      *因此，调用者可以自由地修改返回的数组。 此方法充当基于阵列和基于集合的API之间的桥梁。
      */
@@ -256,11 +258,11 @@ public class ArrayList<E> extends AbstractList<E>
     }
 
     /**
-     * 以正确的顺序返回一个包含此列表中所有元素的数组（从第一个到最后一个元素）; 
-     *返回的数组的运行时类型是指定数组的运行时类型。 如果列表适合指定的数组，则返回其中。 
-     *否则，将为指定数组的运行时类型和此列表的大小分配一个新数组。 
+     * 以正确的顺序返回一个包含此列表中所有元素的数组（从第一个到最后一个元素）;
+     *返回的数组的运行时类型是指定数组的运行时类型。 如果列表适合指定的数组，则返回其中。
+     *否则，将为指定数组的运行时类型和此列表的大小分配一个新数组。
      *如果列表适用于指定的数组，其余空间（即数组的列表数量多于此元素），则紧跟在集合结束后的数组中的元素设置为null 。
-     *（这仅在调用者知道列表不包含任何空元素的情况下才能确定列表的长度。） 
+     *（这仅在调用者知道列表不包含任何空元素的情况下才能确定列表的长度。）
      */
     @SuppressWarnings("unchecked")
     public <T> T[] toArray(T[] a) {
@@ -291,7 +293,7 @@ public class ArrayList<E> extends AbstractList<E>
     }
 
     /**
-     * 用指定的元素替换此列表中指定位置的元素。 
+     * 用指定的元素替换此列表中指定位置的元素。
      */
     public E set(int index, E element) {
         //对index进行界限检查
@@ -304,7 +306,7 @@ public class ArrayList<E> extends AbstractList<E>
     }
 
     /**
-     * 将指定的元素追加到此列表的末尾。 
+     * 将指定的元素追加到此列表的末尾。
      */
     public boolean add(E e) {
         ensureCapacityInternal(size + 1);  // Increments modCount!!
@@ -314,7 +316,7 @@ public class ArrayList<E> extends AbstractList<E>
     }
 
     /**
-     * 在此列表中的指定位置插入指定的元素。 
+     * 在此列表中的指定位置插入指定的元素。
      *先调用 rangeCheckForAdd 对index进行界限检查；然后调用 ensureCapacityInternal 方法保证capacity足够大；
      *再将从index开始之后的所有成员后移一个位置；将element插入index位置；最后size加1。
      */
@@ -330,7 +332,7 @@ public class ArrayList<E> extends AbstractList<E>
     }
 
     /**
-     * 删除该列表中指定位置的元素。 将任何后续元素移动到左侧（从其索引中减去一个元素）。 
+     * 删除该列表中指定位置的元素。 将任何后续元素移动到左侧（从其索引中减去一个元素）。
      */
     public E remove(int index) {
         rangeCheck(index);
@@ -343,7 +345,7 @@ public class ArrayList<E> extends AbstractList<E>
             System.arraycopy(elementData, index+1, elementData, index,
                              numMoved);
         elementData[--size] = null; // clear to let GC do its work
-      //从列表中删除的元素 
+      //从列表中删除的元素
         return oldValue;
     }
 
@@ -382,7 +384,7 @@ public class ArrayList<E> extends AbstractList<E>
     }
 
     /**
-     * 从列表中删除所有元素。 
+     * 从列表中删除所有元素。
      */
     public void clear() {
         modCount++;
@@ -468,7 +470,7 @@ public class ArrayList<E> extends AbstractList<E>
     }
 
     /**
-     * 从此列表中删除指定集合中包含的所有元素。 
+     * 从此列表中删除指定集合中包含的所有元素。
      */
     public boolean removeAll(Collection<?> c) {
         Objects.requireNonNull(c);
@@ -478,7 +480,7 @@ public class ArrayList<E> extends AbstractList<E>
 
     /**
      * 仅保留此列表中包含在指定集合中的元素。
-     *换句话说，从此列表中删除其中不包含在指定集合中的所有元素。 
+     *换句话说，从此列表中删除其中不包含在指定集合中的所有元素。
      */
     public boolean retainAll(Collection<?> c) {
         Objects.requireNonNull(c);
@@ -488,8 +490,8 @@ public class ArrayList<E> extends AbstractList<E>
 
     /**
      * 从列表中的指定位置开始，返回列表中的元素（按正确顺序）的列表迭代器。
-     *指定的索引表示初始调用将返回的第一个元素为next 。 初始调用previous将返回指定索引减1的元素。 
-     *返回的列表迭代器是fail-fast 。 
+     *指定的索引表示初始调用将返回的第一个元素为next 。 初始调用previous将返回指定索引减1的元素。
+     *返回的列表迭代器是fail-fast 。
      */
     public ListIterator<E> listIterator(int index) {
         if (index < 0 || index > size)
@@ -498,7 +500,7 @@ public class ArrayList<E> extends AbstractList<E>
     }
 
     /**
-     *返回列表中的列表迭代器（按适当的顺序）。 
+     *返回列表中的列表迭代器（按适当的顺序）。
      *返回的列表迭代器是fail-fast 。
      */
     public ListIterator<E> listIterator() {
@@ -506,21 +508,25 @@ public class ArrayList<E> extends AbstractList<E>
     }
 
     /**
-     *以正确的顺序返回该列表中的元素的迭代器。 
-     *返回的迭代器是fail-fast 。 
+     *以正确的顺序返回该列表中的元素的迭代器。
+     *返回的迭代器是fail-fast 。
      */
     public Iterator<E> iterator() {
         return new Itr();
     }
 
-```   
-#源码分析
-##System.arraycopy()和Arrays.copyOf()方法
+```
+
+## 源码分析 ##
+
+### System.arraycopy()和Arrays.copyOf()方法 ###
+
 通过上面源码我们发现这两个数组复制的方法被广泛使用而且很多地方都特别巧妙.比如下面`add(int index, E element)`
 方法就很巧妙的用到了`Arraycopy()`方法让数组自己复制自己实现让index开始之后的所有成员后移一个位置:
+
 ```java
  /**
-     * 在此列表中的指定位置插入指定的元素。 
+     * 在此列表中的指定位置插入指定的元素。
      *先调用 rangeCheckForAdd 对index进行界限检查；然后调用 ensureCapacityInternal 方法保证capacity足够大；
      *再将从index开始之后的所有成员后移一个位置；将element插入index位置；最后size加1。
      */
@@ -535,10 +541,12 @@ public class ArrayList<E> extends AbstractList<E>
         size++;
     }
 ```
+
 又如头Array()方法中用到了copyOf()方法
+
 ```java
 /**
-     *以正确的顺序（从第一个到最后一个元素）返回一个包含此列表中所有元素的数组。 
+     *以正确的顺序（从第一个到最后一个元素）返回一个包含此列表中所有元素的数组。
      *返回的数组将是“安全的”，因为该列表不保留对它的引用。 （换句话说，这个方法必须分配一个新的数组）。
      *因此，调用者可以自由地修改返回的数组。 此方法充当基于阵列和基于集合的API之间的桥梁。
      */
@@ -547,32 +555,45 @@ public class ArrayList<E> extends AbstractList<E>
         return Arrays.copyOf(elementData, size);
     }
 ```
-##两者的区别与联系
-**联系**:看两者的源码可以发现copyOf()内部调用了System.arraycopy()方法   
-**区别**:   
-  1. arraycopy()需要目标数组,将原数组拷贝到自己定义的数组里,而且可以选择拷贝的长度和偏移量已经放入新数组的位置
-  2. copyOf()是系统自动在内部新建的一个数组,并返回该数组
-##ArrayList核心扩容技术
+
+### 两者的区别与联系 ###
+
+**联系**:看两者的源码可以发现copyOf()内部调用了System.arraycopy()方法  
+**区别**:  
+
+1. arraycopy()需要目标数组,将原数组拷贝到自己定义的数组里,而且可以选择拷贝的长度和偏移量已经放入新数组的位置
+
+2. copyOf()是系统自动在内部新建的一个数组,并返回该数组
+
+### ArrayList核心扩容技术 ###
+
 ```java
 扩容技术代码
+
 ```
-**需要注意的是:**   
+
+**需要注意的是:**  
+
 1. java中的length**属性**是针对数组说的.
 2. java中的length()**方法**是针对字符串String说的.
-3. java中的size()**方法**是针对泛型集合说的.   
-##内部类
+3. java中的size()**方法**是针对泛型集合说的.  
+
+### 内部类 ###
+
 ```java
     (1)private class Itr implements Iterator<E>  
     (2)private class ListItr extends Itr implements ListIterator<E>  
     (3)private class SubList extends AbstractList<E> implements RandomAccess  
-    (4)static final class ArrayListSpliterator<E> implements Spliterator<E> 
+    (4)static final class ArrayListSpliterator<E> implements Spliterator<E>
 ```
+
 ArrayList有四个内部类,其中的Itr是实现了Iterator接口,同时重写了里面的hashNext(),next(),remove()方法;
 其中的ListItr继承了Itr,实现了ListIterator接口,同时重写了hashPrevious(),nextIndex(),previousIndex(),
 previous(),set(E e), add(E e)等方法,所以这也可以看出**Iterator和ListItertor的区别**:ListIterator子啊Iterator的
-基础上增加了添加对象,修改对象,你想遍历对象等方法,这些是Iterator不能实现的.   
+基础上增加了添加对象,修改对象,你想遍历对象等方法,这些是Iterator不能实现的.  
 
-#ArrayList经典Demo
+## ArrayList经典Demo ##
+
 ```java
 package list;
 import java.util.ArrayList;
@@ -631,7 +652,7 @@ public class ArrayListDemo {
          // 在指定位置添加元素
          arrayList.add(2,2);
          // 删除指定位置上的元素
-         arrayList.remove(2);    
+         arrayList.remove(2);
          // 删除指定元素
          arrayList.remove((Object)3);
          // 判断arrayList是否包含5
