@@ -7,4 +7,5 @@ java学习
 - redis学习  
 - docker学习  
 - dubbo学习  
+- zookeeper学习
 - 前端学习
