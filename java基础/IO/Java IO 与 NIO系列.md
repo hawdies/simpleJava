@@ -53,7 +53,7 @@
 1. FileChannel的使用
 2. SocketChannel和ServerSocketChannel的使用
 3. DatagramChannel的使用
-4. Scatter / Gather
+4. Scatter / Gather 
 5. 通道之间的数据传输  
 
 ### 四 Java NIO之 Selector ###
