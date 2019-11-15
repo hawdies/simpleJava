@@ -1,6 +1,6 @@
 # simpleJava
 
-java学习
+java的个人学习笔记
 
 - java基本语法,IO操作,网络操作,jvm学习,多线程  
 - spring框架  
